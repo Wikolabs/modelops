@@ -42,10 +42,21 @@
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a
-                href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
+                href="https://calendly.com/wikolabs"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-green-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors text-center"
               >
-                Déployer mon premier modèle
+                📅 Réserver un créneau →
+              </a>
+              <a
+                href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white font-semibold px-6 py-3 rounded-lg text-center"
+                style={{ backgroundColor: "#25d366" }}
+              >
+                💬 WhatsApp →
               </a>
               <a
                 href="#fonctionnalites"
@@ -186,12 +197,25 @@
           <p className="text-gray-600 mb-8">
             Obtenez un modèle fine-tuné sur vos données et déployé en production en moins de 48 heures. Nos ingénieurs vous accompagnent à chaque étape.
           </p>
-          <a
-            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-            className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg"
-          >
-            Déployer mon premier modèle →
-          </a>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href="https://calendly.com/wikolabs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg"
+            >
+              📅 Réserver un créneau →
+            </a>
+            <a
+              href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-white font-semibold px-8 py-4 rounded-xl text-lg"
+              style={{ backgroundColor: "#25d366" }}
+            >
+              💬 WhatsApp →
+            </a>
+          </div>
           <p className="text-xs text-gray-400 mt-4">Réponse sous 24h · Sans engagement</p>
         </div>
       </section>
