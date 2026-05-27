@@ -1,4 +1,4 @@
-export default function ModelOpsPage() {
+﻿export default function ModelOpsPage() {
   return (
     <div className="min-h-screen bg-green-50 text-gray-900" style={{ fontFamily: "var(--font-body, 'Hind', sans-serif)" }}>
 
@@ -14,7 +14,7 @@ export default function ModelOpsPage() {
             <a href="#cta" className="hover:text-green-700 transition-colors">Contact</a>
           </div>
           <a
-            href="mailto:hello@wikolabs.com?subject=ModelOps — Demande de démo"
+            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
             className="bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors"
           >
             Demander une démo
@@ -42,7 +42,7 @@ export default function ModelOpsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <a
-                href="mailto:hello@wikolabs.com?subject=ModelOps — Demande de démo"
+                href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
                 className="bg-green-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors text-center"
               >
                 Déployer mon premier modèle
@@ -187,7 +187,7 @@ export default function ModelOpsPage() {
             Obtenez un modèle fine-tuné sur vos données et déployé en production en moins de 48 heures. Nos ingénieurs vous accompagnent à chaque étape.
           </p>
           <a
-            href="mailto:hello@wikolabs.com?subject=ModelOps — Demande de démo"
+            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
             className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg"
           >
             Déployer mon premier modèle →
