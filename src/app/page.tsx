@@ -230,9 +230,13 @@
             ModelOps
           </span>
           <span>© 2025 ModelOps — Un produit Wikolabs</span>
-          <a href="mailto:team@wikolabs.com" className="hover:text-green-700 transition-colors">
-            team@wikolabs.com
-          </a>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", fontSize: "0.8rem" }}>
+            <a href="mailto:team@wikolabs.com" style={{ textDecoration: "none", color: "inherit" }}>team@wikolabs.com</a>
+            <span>·</span>
+            <a href="tel:+261386626100" style={{ textDecoration: "none", color: "inherit" }}>+261 38 66 261 00</a>
+            <span>·</span>
+            <a href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>Prendre RDV</a>
+          </div>
         </div>
       </footer>
 
