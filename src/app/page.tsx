@@ -13,12 +13,10 @@
             <a href="#stats" className="hover:text-green-700 transition-colors">Résultats</a>
             <a href="#cta" className="hover:text-green-700 transition-colors">Contact</a>
           </div>
-          <a
-            href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer"
-            className="bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors"
-          >
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            className="bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">
             Demander une démo
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -41,14 +39,10 @@
               ModelOps prend en charge tout le cycle de vie de vos modèles de langage — de l'entraînement sur vos données à la mise en production — sans data scientist dédié.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <a
-                href="https://calendly.com/wikolabs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors text-center"
-              >
+              <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            className="bg-green-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors text-center">
                 📅 Réserver un créneau →
-              </a>
+              </button>
               <a
                 href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
                 target="_blank"
@@ -198,14 +192,10 @@
             Obtenez un modèle fine-tuné sur vos données et déployé en production en moins de 48 heures. Nos ingénieurs vous accompagnent à chaque étape.
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a
-              href="https://calendly.com/wikolabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg"
-            >
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
+            className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg">
               📅 Réserver un créneau →
-            </a>
+            </button>
             <a
               href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
               target="_blank"
