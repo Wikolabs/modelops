@@ -1,235 +1,231 @@
-﻿export default function ModelOpsPage() {
-  return (
-    <div className="min-h-screen bg-green-50 text-gray-900" style={{ fontFamily: "var(--font-body, 'Hind', sans-serif)" }}>
+﻿"use client";
 
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-green-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold text-green-700" style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}>
-            ModelOps
-          </span>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-            <a href="#fonctionnalites" className="hover:text-green-700 transition-colors">Fonctionnalités</a>
-            <a href="#stats" className="hover:text-green-700 transition-colors">Résultats</a>
-            <a href="#cta" className="hover:text-green-700 transition-colors">Contact</a>
+const P = {
+  name: "ModelOps",
+  tagLabel: "MLOps · Fine-tuning · Production IA",
+  taglines: ["Vos donnees.", "Votre modele sur mesure.", "En production en 48h."],
+  taglineAccentIdx: 1,
+  desc: "ModelOps prend en charge tout le cycle de vie de vos modeles de langage — entraínement sur vos donnees, versioning, deploiement et monitoring — sans data scientist dedie.",
+  accent: "#F59E0B",
+  accentDim: "rgba(245,158,11,0.1)",
+  accentBorder: "rgba(245,158,11,0.25)",
+  accentGlow: "rgba(245,158,11,0.12)",
+  waText: "ModelOps",
+  navLinks: [
+    { label: "Fonctionnalites", href: "#features" },
+    { label: "Comment ca marche", href: "#process" },
+    { label: "Contact", href: "#cta" },
+  ],
+  metrics: [
+    { value: "48h", label: "de donnees a la prod" },
+    { value: "3×", label: "meilleures performances" },
+    { value: "0", label: "data scientist requis" },
+    { value: "100%", label: "versionne et auditable" },
+  ],
+  features: [
+    { icon: "🧠", title: "Fine-tuning automatise", desc: "Importez votre dataset CSV, JSON ou PDF. Choisissez un modele de base — Llama, Mistral, Falcon — et lancez l'entraínement en un clic. ModelOps gere l'infrastructure GPU." },
+    { icon: "🗃️", title: "Versioning et registre", desc: "Chaque version de votre modele est sauvegardee, comparee et documentee automatiquement. Rollback instantane, historique complet, comparaison des metriques inter-versions." },
+    { icon: "📡", title: "Monitoring en production", desc: "Detectez les derives (data drift, concept drift) avant qu'elles n'impactent vos utilisateurs. Alertes email et Slack, dashboard de qualite des reponses en temps reel." },
+  ],
+  steps: [
+    { num: "01", title: "Importez votre dataset", desc: "Glissez-deposez votre fichier CSV, JSON ou PDF. L'interface guide la preparation des donnees et la selection du modele de base le plus adapte a votre cas d'usage." },
+    { num: "02", title: "Lancez le fine-tuning", desc: "ModelOps configure automatiquement les hyperparametres, alloue les ressources GPU et lance l'entraínement. Resultats lisibles sans expertise ML." },
+    { num: "03", title: "Deployez et surveillez", desc: "Le modele est deploye via une API REST securisee. Le monitoring demarre automatiquement — performances, drifts et alertes configures en amont." },
+  ],
+  testimonials: [
+    { quote: "En 48h, nous avions un modele fine-tune sur nos 40 000 tickets support. Les reponses automatiques sont pertinentes a 94% — sans recruter un data scientist.", author: "Laurent M.", role: "Directeur Technique, SaaS RH" },
+    { quote: "Le versioning nous a sauves lors d'une regression. Rollback en un clic, le modele precedent en production en moins de 5 minutes. Impensable avant.", author: "Inese K.", role: "Lead ML Engineer, Fintech" },
+  ],
+  ctaTitle: "Votre premier modele sur mesure en 48h",
+  ctaDesc: "Nos ingenieurs vous accompagnent de l'import du dataset au deploiement en production. Sans engagement, sans carte bancaire.",
+  ctaPrimary: "Reserver un creneau",
+  footerTagline: "MLOps et deploiement de modeles IA pour dirigeants",
+};
+
+export default function Page() {
+  const bg = "#04080F";
+  const bg2 = "#070D1B";
+  const card = "rgba(255,255,255,0.04)";
+  const border = "rgba(255,255,255,0.09)";
+  const gold = "#D4AF37";
+  const goldDim = "rgba(212,175,55,0.1)";
+  const goldBorder = "rgba(212,175,55,0.28)";
+  const txt1 = "#F0EDE6";
+  const txt2 = "#8B9DB5";
+  const txt3 = "#3C5068";
+  const { accent, accentDim, accentBorder, accentGlow } = P;
+
+  return (
+    <div style={{ minHeight: "100vh", background: bg, color: txt1 }}>
+      <style>{`
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(1.6); } }
+        .wk-card { transition: background .3s, border-color .3s, transform .35s cubic-bezier(.34,1.2,.64,1); }
+        .wk-card:hover { background: rgba(255,255,255,0.07) !important; border-color: ${accentBorder} !important; transform: translateY(-6px) !important; }
+        .wk-btn { transition: opacity .2s, transform .2s, box-shadow .2s; }
+        .wk-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 12px 32px rgba(212,175,55,.18); }
+        .wk-wa { transition: opacity .2s, transform .2s; }
+        .wk-wa:hover { opacity:.9; transform:translateY(-2px); }
+        .wk-nav-link { color: #8B9DB5; text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+        .wk-nav-link:hover { color: #F0EDE6; }
+        @media(max-width:640px){ .wk-hide-sm{ display:none!important; } .wk-hero-title{ font-size:2.4rem!important; } }
+      `}</style>
+
+      {/* NAVBAR */}
+      <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(4,8,15,0.82)", backdropFilter:"blur(20px)", borderBottom:`1px solid ${border}`, padding:"0 40px", height:60, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <span style={{ fontSize:18, fontWeight:800, letterSpacing:"-0.5px", color:txt1 }}>
+          {P.name}<span style={{ color:gold }}>.</span>
+        </span>
+        <div style={{ display:"flex", gap:28, alignItems:"center" }}>
+          <div className="wk-hide-sm" style={{ display:"flex", gap:24 }}>
+            {P.navLinks.map(l => <a key={l.label} href={l.href} className="wk-nav-link">{l.label}</a>)}
           </div>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            className="bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors">
-            Demander une démo
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:8, padding:"8px 18px", fontWeight:700, fontSize:13.5, cursor:"pointer", fontFamily:"inherit" }}>
+            Reserver &rarr;
           </button>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-14">
-          <div className="flex-1 text-center lg:text-left">
-            <span className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
-              MLOps · IA Opérationnelle
-            </span>
-            <h1
-              className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
-              style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}
-            >
-              Fine-tuning, versioning,<br />
-              <span className="text-green-700">déploiement de modèles IA</span><br />
-              en 48h
-            </h1>
-            <p className="text-gray-600 text-lg mb-8 max-w-xl">
-              ModelOps prend en charge tout le cycle de vie de vos modèles de langage — de l'entraînement sur vos données à la mise en production — sans data scientist dédié.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            className="bg-green-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-800 transition-colors text-center">
-                📅 Réserver un créneau →
-              </button>
-              <a
-                href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white font-semibold px-6 py-3 rounded-lg text-center"
-                style={{ backgroundColor: "#25d366" }}
-              >
-                💬 WhatsApp →
-              </a>
-              <a
-                href="#fonctionnalites"
-                className="border border-green-700 text-green-700 font-semibold px-6 py-3 rounded-lg hover:bg-green-50 transition-colors text-center"
-              >
-                Voir comment ça marche
-              </a>
+      {/* HERO */}
+      <section style={{ padding:"100px 40px 80px", maxWidth:1000, margin:"0 auto", textAlign:"center", position:"relative" }}>
+        <div style={{ position:"absolute", top:-60, left:"50%", transform:"translateX(-50%)", width:700, height:600, background:`radial-gradient(ellipse at 50% 30%, ${accentGlow} 0%, transparent 60%)`, pointerEvents:"none" }} />
+        <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:24, background:accentDim, border:`1px solid ${accentBorder}`, borderRadius:100, padding:"6px 18px", animation:"fadeUp .5s ease both" }}>
+          <span style={{ width:7, height:7, borderRadius:"50%", background:accent, display:"inline-block", animation:"pulseDot 2s ease-in-out infinite" }} />
+          <span style={{ color:accent, fontSize:11.5, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>{P.tagLabel}</span>
+        </div>
+        <h1 className="wk-hero-title" style={{ fontSize:"clamp(2.6rem,6vw,5rem)", fontWeight:700, lineHeight:1.08, letterSpacing:"-0.03em", marginBottom:28, fontFamily:"'Instrument Serif',Georgia,serif", animation:"fadeUp .5s .08s ease both" }}>
+          {P.taglines.map((line, i) => (
+            <span key={i} style={{ display:"block", color:i===P.taglineAccentIdx?accent:txt1, fontStyle:i===P.taglineAccentIdx?"italic":"normal" }}>{line}</span>
+          ))}
+        </h1>
+        <p style={{ fontSize:"1.1rem", color:txt2, lineHeight:1.72, maxWidth:580, margin:"0 auto 48px", animation:"fadeUp .5s .16s ease both" }}>{P.desc}</p>
+        <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"center", gap:14, marginBottom:44, animation:"fadeUp .5s .24s ease both" }}>
+          {P.metrics.map(m => (
+            <div key={m.label} style={{ background:card, border:`1px solid ${border}`, borderRadius:18, padding:"14px 22px", textAlign:"center", minWidth:118 }}>
+              <div style={{ fontSize:"1.7rem", fontWeight:800, color:txt1, letterSpacing:"-1.5px", lineHeight:1 }}>{m.value}</div>
+              <div style={{ fontSize:"0.62rem", color:txt3, textTransform:"uppercase", letterSpacing:"1.5px", marginTop:5 }}>{m.label}</div>
             </div>
-          </div>
-
-          {/* Pipeline diagram mockup */}
-          <div className="flex-1 w-full max-w-lg bg-white rounded-2xl shadow-xl border border-green-100 p-6">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">Pipeline d'entraînement — Modèle v2.4</p>
-            <div className="space-y-4">
-              {[
-                { label: "Données brutes", status: "✓ Terminé", statusColor: "#15803d", bg: "#dcfce7", progress: 100 },
-                { label: "Fine-tuning", status: "En cours...", statusColor: "#b45309", bg: "#fef3c7", progress: 63 },
-                { label: "Évaluation", status: "En attente", statusColor: "#6b7280", bg: "#f3f4f6", progress: 0 },
-                { label: "Production", status: "En attente", statusColor: "#6b7280", bg: "#f3f4f6", progress: 0 },
-              ].map((stage, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                    style={{ background: stage.bg, color: stage.statusColor }}
-                  >
-                    {i + 1}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-sm font-medium text-gray-800">{stage.label}</span>
-                      <span
-                        className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                        style={{ background: stage.bg, color: stage.statusColor }}
-                      >
-                        {stage.status}
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-100 rounded-full h-1.5">
-                      <div
-                        className="h-1.5 rounded-full transition-all"
-                        style={{ width: `${stage.progress}%`, background: "#15803d" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex gap-4 text-xs text-gray-500">
-              <span>⏱ Temps restant : ~6h</span>
-              <span>·</span>
-              <span>📦 Base : Llama 3.1 8B</span>
-              <span>·</span>
-              <span>🗂 Dataset : 42 k lignes</span>
-            </div>
-          </div>
+          ))}
+        </div>
+        <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", animation:"fadeUp .5s .32s ease both" }}>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+            style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+            &#128197; {P.ctaPrimary}
+          </button>
+          <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+            target="_blank" rel="noopener noreferrer" className="wk-wa"
+            style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+            &#128172; WhatsApp
+          </a>
         </div>
       </section>
 
-      {/* Stats */}
-      <section id="stats" className="py-16 px-6 bg-green-700">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
-          {[
-            { value: "48h", label: "pour passer de vos données à la production" },
-            { value: "0", label: "data scientist dédié requis" },
-            { value: "3×", label: "meilleures performances vs modèle de base" },
-          ].map((stat, i) => (
-            <div key={i}>
-              <p className="text-5xl font-bold mb-2" style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}>
-                {stat.value}
-              </p>
-              <p className="text-green-200 text-sm">{stat.label}</p>
+      {/* FEATURES */}
+      <section id="features" style={{ padding:"80px 40px", maxWidth:1100, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:52 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Fonctionnalites</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif", lineHeight:1.15 }}>
+            Tout automatise, <em style={{ fontStyle:"italic", color:gold }}>rien a gerer</em>
+          </h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))", gap:20 }}>
+          {P.features.map((f, i) => (
+            <div key={f.title} className="wk-card" style={{ background:card, border:`1px solid ${border}`, borderRadius:20, padding:"28px 28px 24px", position:"relative", overflow:"hidden" }}>
+              <div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:`linear-gradient(90deg,transparent,${i===0?gold:accent},transparent)`, opacity:.6 }} />
+              <div style={{ fontSize:"2rem", marginBottom:16 }}>{f.icon}</div>
+              <h3 style={{ fontSize:"1.05rem", fontWeight:700, color:txt1, marginBottom:10 }}>{f.title}</h3>
+              <p style={{ fontSize:"0.88rem", color:txt2, lineHeight:1.7, margin:0 }}>{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Features */}
-      <section id="fonctionnalites" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2
-            className="text-3xl font-bold text-center text-gray-900 mb-14"
-            style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}
-          >
-            Tout ce dont vous avez besoin, <span className="text-green-700">sans la complexité</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🧠",
-                title: "Fine-tuning automatisé",
-                desc: "Importez votre dataset, choisissez un modèle de base parmi notre catalogue (Llama, Mistral, Falcon…) et lancez l'entraînement en un clic. ModelOps gère l'infrastructure, les hyperparamètres et les optimisations GPU.",
-                bullets: ["Upload CSV, JSON ou PDF", "Sélection guidée du modèle de base", "Résultats lisibles sans expertise ML"],
-              },
-              {
-                icon: "🗃️",
-                title: "Versioning & registre",
-                desc: "Chaque version de votre modèle est sauvegardée, comparée et documentée automatiquement. Revenez à n'importe quelle version en un clic, sans perdre aucune donnée.",
-                bullets: ["Historique complet des versions", "Rollback instantané", "Comparaison des métriques inter-versions"],
-              },
-              {
-                icon: "📡",
-                title: "Monitoring en production",
-                desc: "Suivez les performances de vos modèles après déploiement. Détectez les dérives (data drift, concept drift) avant qu'elles n'impactent vos utilisateurs et recevez des alertes automatiques.",
-                bullets: ["Détection de drift en temps réel", "Alertes email & Slack", "Dashboard de qualité des réponses"],
-              },
-            ].map((feat, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-green-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-3xl mb-4">{feat.icon}</div>
-                <h3
-                  className="text-lg font-bold text-gray-900 mb-3"
-                  style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}
-                >
-                  {feat.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{feat.desc}</p>
-                <ul className="space-y-1.5">
-                  {feat.bullets.map((b, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
-                      <span className="text-green-600 font-bold">✓</span> {b}
-                    </li>
-                  ))}
-                </ul>
+      {/* HOW IT WORKS */}
+      <section id="process" style={{ padding:"80px 40px", background:bg2 }}>
+        <div style={{ maxWidth:860, margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:48 }}>
+            <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Comment ca marche</p>
+            <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>
+              En production en <em style={{ fontStyle:"italic", color:accent }}>48 heures</em>
+            </h2>
+          </div>
+          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+            {P.steps.map((s, i) => (
+              <div key={s.num} style={{ display:"flex", alignItems:"flex-start", gap:22, background:card, border:`1px solid ${border}`, borderRadius:18, padding:"22px 26px" }}>
+                <div style={{ flexShrink:0, width:46, height:46, background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", color:i===0?gold:accent, fontWeight:800, fontSize:15 }}>
+                  {s.num}
+                </div>
+                <div>
+                  <h3 style={{ fontSize:"1rem", fontWeight:700, color:txt1, marginBottom:6, lineHeight:1.3 }}>{s.title}</h3>
+                  <p style={{ fontSize:"0.87rem", color:txt2, lineHeight:1.7, margin:0 }}>{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="cta" className="py-20 px-6 bg-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2
-            className="text-3xl font-bold text-gray-900 mb-4"
-            style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}
-          >
-            Prêt à déployer votre premier modèle sur mesure ?
-          </h2>
-          <p className="text-gray-600 mb-8">
-            Obtenez un modèle fine-tuné sur vos données et déployé en production en moins de 48 heures. Nos ingénieurs vous accompagnent à chaque étape.
-          </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button"
-            className="inline-block bg-green-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-800 transition-colors text-lg">
-              📅 Réserver un créneau →
-            </button>
-            <a
-              href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20ModelOps%20avec%20Wikolabs."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-white font-semibold px-8 py-4 rounded-xl text-lg"
-              style={{ backgroundColor: "#25d366" }}
-            >
-              💬 WhatsApp →
-            </a>
-          </div>
-          <p className="text-xs text-gray-400 mt-4">Réponse sous 24h · Sans engagement</p>
+      {/* TESTIMONIALS */}
+      <section style={{ padding:"80px 40px", maxWidth:900, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:44 }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Temoignages</p>
+          <h2 style={{ fontSize:"clamp(1.6rem,3vw,2.4rem)", fontWeight:700, color:txt1, fontFamily:"'Instrument Serif',Georgia,serif" }}>Ce qu&apos;en disent nos clients</h2>
+        </div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))", gap:20 }}>
+          {P.testimonials.map((t, i) => (
+            <div key={i} style={{ background:card, border:`1px solid ${border}`, borderLeft:`3px solid ${i===0?gold:accent}`, borderRadius:20, padding:"26px 26px 22px" }}>
+              <p style={{ fontSize:"0.92rem", color:txt2, lineHeight:1.75, fontStyle:"italic", marginBottom:20 }}>&ldquo;{t.quote}&rdquo;</p>
+              <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                <div style={{ width:38, height:38, borderRadius:"50%", background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>&#128100;</div>
+                <div>
+                  <div style={{ fontSize:"0.9rem", fontWeight:700, color:txt1 }}>{t.author}</div>
+                  <div style={{ fontSize:"0.72rem", color:txt3 }}>{t.role}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 border-t border-green-100 bg-green-50">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
-          <span
-            className="font-bold text-green-700"
-            style={{ fontFamily: "var(--font-display, 'Josefin Sans', sans-serif)" }}
-          >
-            ModelOps
-          </span>
-          <span>© 2025 ModelOps — Un produit Wikolabs</span>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1rem", fontSize: "0.8rem" }}>
-            <a href="mailto:team@wikolabs.com" style={{ textDecoration: "none", color: "inherit" }}>team@wikolabs.com</a>
-            <span>·</span>
-            <a href="tel:+261386626100" style={{ textDecoration: "none", color: "inherit" }}>+261 38 66 261 00</a>
-            <span>·</span>
-            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>Prendre RDV</button>
+      {/* CTA */}
+      <section id="cta" style={{ padding:"0 40px 100px", maxWidth:860, margin:"0 auto" }}>
+        <div style={{ background:card, border:`1px solid ${goldBorder}`, borderRadius:24, padding:"64px 48px", textAlign:"center", backgroundImage:`radial-gradient(ellipse at 50% 0%, ${goldDim} 0%, transparent 65%)` }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:16 }}>Demarrer</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, marginBottom:14, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>{P.ctaTitle}</h2>
+          <p style={{ color:txt2, fontSize:"1rem", marginBottom:36, lineHeight:1.7 }}>{P.ctaDesc}</p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center" }}>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn"
+              style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>
+              &#128197; {P.ctaPrimary}
+            </button>
+            <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`}
+              target="_blank" rel="noopener noreferrer" className="wk-wa"
+              style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>
+              &#128172; WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ borderTop:`1px solid ${border}`, padding:"32px 40px" }}>
+        <div style={{ maxWidth:1200, margin:"0 auto", display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:16 }}>
+          <div>
+            <span style={{ fontWeight:800, fontSize:16, color:txt1 }}>{P.name}</span><span style={{ color:gold }}>.</span>
+            <span style={{ display:"block", fontSize:12, color:txt3, marginTop:3 }}>{P.footerTagline}</span>
+          </div>
+          <p style={{ fontSize:13, color:txt3 }}>&#169; 2026 {P.name} &mdash; Un produit <a href="https://wikolabs.com" style={{ color:txt2, textDecoration:"none" }}>Wikolabs</a></p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:16, fontSize:13, alignItems:"center" }}>
+            <a href="mailto:team@wikolabs.com" style={{ color:txt3, textDecoration:"none" }}>team@wikolabs.com</a>
+            <span style={{ color:txt3 }}>&#183;</span>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' style={{ background:"none", border:"none", color:txt3, fontSize:13, cursor:"pointer", fontFamily:"inherit", padding:0 }}>Prendre RDV</button>
           </div>
         </div>
       </footer>
-
     </div>
   );
 }
